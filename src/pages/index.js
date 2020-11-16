@@ -52,7 +52,7 @@ function IndexPage() {
         >
           Prologue
         </a>
-        <Link to="page-2">Post-prologue</Link>
+        <Link to="page-2">Post-Prologue</Link>
       </Prologue>
       <OddChapter>Chapter One</OddChapter>
       <EvenChapter>Chapter Two</EvenChapter>
