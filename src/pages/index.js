@@ -46,7 +46,12 @@ function IndexPage() {
     <Container>
       <CssBaseline />
       <Prologue>
-        Prologue
+        <a
+          href="https://brianyyang.itch.io/larian-tales-prologue"
+          target="_blank"
+        >
+          Prologue
+        </a>
         <Link to="page-2">Post-prologue video</Link>
       </Prologue>
       <OddChapter>Chapter One</OddChapter>
