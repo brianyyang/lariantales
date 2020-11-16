@@ -8,10 +8,9 @@ function SecondPage() {
     <div>
       <Video
         videoSrcURL="https://www.youtube.com/embed/Rqsvs7xFWCU"
-        videoTitle="Post Prologue Larian Tales"
-      >
-        <source src={Intro} type="video/mp4" />
-      </Video>
+        videoTitle="Post
+        Prologue Larian Tales"
+      ></Video>
     </div>
   )
 }
