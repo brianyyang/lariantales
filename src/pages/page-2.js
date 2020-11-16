@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import Intro from "../../assets/postprologue.mp4"
+import Intro from "../media/postprologue.mp4"
 import styled from "@material-ui/core"
 
 function SecondPage() {
