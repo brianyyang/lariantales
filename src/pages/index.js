@@ -49,10 +49,13 @@ function IndexPage() {
         <a
           href="https://brianyyang.itch.io/larian-tales-prologue"
           target="_blank"
+          style={{ textDecoration: "none" }}
         >
           Prologue
         </a>
-        <Link to="page-2">Post-Prologue</Link>
+        <Link to="page-2" style={{ textDecoration: "none" }}>
+          Post-Prologue
+        </Link>
       </Prologue>
       <OddChapter>Chapter One</OddChapter>
       <EvenChapter>Chapter Two</EvenChapter>
