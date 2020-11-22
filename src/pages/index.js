@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import { CssBaseline } from "@material-ui/core"
+import BackgroundImage from "gatsby-background-image"
+import { graphql } from "gatsby"
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +26,10 @@ const Chapter = styled.div`
   @media (max-width: 459px) {
     height: 50vh;
   }
+  &:hover {
+    opacity: 0.6;
+    transition: opacity 0.75s;
+  }
 `
 
 const Prologue = styled(Chapter)`
@@ -41,24 +47,30 @@ const EvenChapter = styled(Chapter)`
   color: #ac73b9;
 `
 
-function IndexPage() {
+function IndexPage(props) {
   return (
     <Container>
       <CssBaseline />
-      <Prologue>
-        <a
-          href="https://brianyyang.itch.io/larian-tales-prologue"
-          target="_blank"
-          style={{ textDecoration: "none" }}
-        >
-          Prologue
-        </a>
-        <Link to="page-2" style={{ textDecoration: "none" }}>
-          Post-Prologue
-        </Link>
-      </Prologue>
-      <OddChapter>Chapter One</OddChapter>
-      <EvenChapter>Chapter Two</EvenChapter>
+      <BackgroundImage fluid={props.data.prologue.childImageSharp.fluid}>
+        <Prologue>
+          <a
+            href="https://brianyyang.itch.io/larian-tales-prologue"
+            target="_blank"
+            style={{ textDecoration: "none" }}
+          >
+            Prologue
+          </a>
+          <Link to="page-2" style={{ textDecoration: "none" }}>
+            Post-Prologue
+          </Link>
+        </Prologue>
+      </BackgroundImage>
+      <BackgroundImage fluid={props.data.commonKnights.childImageSharp.fluid}>
+        <OddChapter>The Common Knights</OddChapter>
+      </BackgroundImage>
+      <BackgroundImage fluid={props.data.revolution.childImageSharp.fluid}>
+        <EvenChapter>Revolution</EvenChapter>
+      </BackgroundImage>
       <OddChapter>Chapter Three</OddChapter>
       <EvenChapter>Chapter Four</EvenChapter>
       <OddChapter>Chapter Five</OddChapter>
@@ -68,3 +80,26 @@ function IndexPage() {
 }
 
 export default IndexPage
+
+export const pageQuery = graphql`
+  query {
+    commonKnights: file(relativePath: { eq: "commonknights.jpg" }) {
+      ...bgImage
+    }
+    revolution: file(relativePath: { eq: "castle.jpg" }) {
+      ...bgImage
+    }
+    prologue: file(relativePath: { eq: "rhen.jpg" }) {
+      ...bgImage
+    }
+  }
+`
+export const bgImage = graphql`
+  fragment bgImage on File {
+    childImageSharp {
+      fluid(maxWidth: 1800, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
