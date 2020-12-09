@@ -38,13 +38,21 @@ const Prologue = styled(Chapter)`
 `
 
 const OddChapter = styled(Chapter)`
+  background-color: #513967;
+  color: #ac73b9;
+`
+
+const EvenChapter = styled(Chapter)`
   background-color: #312551;
   color: #b87396;
 `
 
-const EvenChapter = styled(Chapter)`
-  background-color: #513967;
-  color: #ac73b9;
+const GoodA = styled.a`
+  color: inherit;
+`
+
+const GoodLink = styled(Link)`
+  color: inherit;
 `
 
 function IndexPage(props) {
@@ -53,20 +61,39 @@ function IndexPage(props) {
       <CssBaseline />
       <BackgroundImage fluid={props.data.prologue.childImageSharp.fluid}>
         <Prologue>
-          <a
+          <GoodA
             href="https://brianyyang.itch.io/larian-tales-prologue"
             target="_blank"
             style={{ textDecoration: "none" }}
           >
             Prologue
-          </a>
-          <Link to="page-2" style={{ textDecoration: "none" }}>
+          </GoodA>
+          <GoodLink to="post-prologue" style={{ textDecoration: "none" }}>
             Post-Prologue
-          </Link>
+          </GoodLink>
         </Prologue>
       </BackgroundImage>
+      <BackgroundImage fluid={props.data.orcs.childImageSharp.fluid}>
+        <EvenChapter>
+          <GoodA
+            href="https://www.flipsnack.com/8885DC88B7A/xugor-tulestesh.html"
+            target="_blank"
+            color="inherit"
+            style={{ textDecoration: "none" }}
+          >
+            Xugor
+          </GoodA>
+        </EvenChapter>
+      </BackgroundImage>
       <BackgroundImage fluid={props.data.commonKnights.childImageSharp.fluid}>
-        <OddChapter>The Common Knights</OddChapter>
+        <OddChapter>
+          <GoodLink
+            to="common-knights-quest"
+            style={{ textDecoration: "none" }}
+          >
+            The Common Knights
+          </GoodLink>
+        </OddChapter>
       </BackgroundImage>
       <BackgroundImage fluid={props.data.revolution.childImageSharp.fluid}>
         <EvenChapter>Revolution</EvenChapter>
@@ -90,6 +117,9 @@ export const pageQuery = graphql`
       ...bgImage
     }
     prologue: file(relativePath: { eq: "rhen.jpg" }) {
+      ...bgImage
+    }
+    orcs: file(relativePath: { eq: "orcthieves.png" }) {
       ...bgImage
     }
   }
