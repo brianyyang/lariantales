@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Video from "../components/video"
-import Button from "@material-ui/core/Button"
+import { Button } from "@material-ui/core"
 
 const Container = styled.div`
   display: flex;
