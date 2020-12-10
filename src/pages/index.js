@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { CssBaseline } from "@material-ui/core"
 import BackgroundImage from "gatsby-background-image"
 import { graphql } from "gatsby"
@@ -78,7 +78,6 @@ function IndexPage(props) {
           <GoodA
             href="https://www.flipsnack.com/8885DC88B7A/xugor-tulestesh.html"
             target="_blank"
-            color="inherit"
             style={{ textDecoration: "none" }}
           >
             Xugor
